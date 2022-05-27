@@ -1,0 +1,25 @@
+- name: Run tfsec PR commenter
+  # You may pin to the exact commit or the version.
+  # uses: aquasecurity/tfsec-pr-commenter-action@1015a3975c7f1400ee4d9f423a7786a3df9fcbec
+  uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
+  with:
+    # GITHUB_TOKEN
+    github_token: 
+    # Directory to run the action on, from the repo root.
+Default is . (root of the repository)
+
+    working_directory: # optional, default is .
+    # The version of tfsec to use, defaults to latest
+    tfsec_version: # optional, default is latest
+    # Space-separated args specified here will be added during tfsec execution.
+(e.g. --force-all-dirs --verbose)
+
+    tfsec_args: # optional
+    # Comma-separated formats specified here will be output in addition to json.
+(e.g. sarif,csv)
+
+    tfsec_formats: # optional
+    # The version of the PR commenter code to run, defaults to latest
+    commenter_version: # optional, default is latest
+    # If set to `true` will silently comment without breaking the build
+    soft_fail_commenter: # optional
