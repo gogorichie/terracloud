@@ -103,6 +103,19 @@ resource "azurerm_public_ip" "catapp-pip" {
 }
 
 resource "azurerm_virtual_machine" "catapp" {
+  # oak9: azurerm_virtual_machine.os_profile_windows_config.winrm.certificate_url is not configured
+  # oak9: storageProfile.osDisk.encryptionSettings.enabled is not configured
+  # oak9: storageProfile.osDisk.encryptionSettings.enabled should be set to any of True
+  # oak9: securityProfile.encryptionAtHost is not configured
+  # oak9: securityProfile.encryptionAtHost should be set to any of True
+  # oak9: azurerm_virtual_machine.os_profile_windows_config.enable_automatic_upgrades is not configured
+  # oak9: azurerm_virtual_machine.os_profile_windows_config.enable_automatic_upgrades should be set to any of True
+  # oak9: azurerm_virtual_machine.os_profile_windows_config.winrm.protocol is not configured
+  # oak9: azurerm_virtual_machine.os_profile_windows_config.winrm.protocol should be set to any of Https
+  # oak9: securityProfile.uefiSettings.secureBootEnabled is not configured
+  # oak9: securityProfile.uefiSettings.secureBootEnabled should be set to any of True
+  # oak9: securityProfile.uefiSettings.vTpmEnabled is not configured
+  # oak9: securityProfile.uefiSettings.vTpmEnabled should be set to any of True
   name                = "${var.prefix}-meow"
   location            = var.location
   resource_group_name = data.azurerm_resource_group.rg.name
@@ -132,7 +145,7 @@ resource "azurerm_virtual_machine" "catapp" {
   }
 
   os_profile_linux_config {
-    disable_password_authentication = false
+    disable_password_authentication = true
   }
 
   tags = {}
