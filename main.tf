@@ -6,7 +6,7 @@ terraform {
     }
   }
 }
-#notes
+
 provider "azurerm" {
   features {}
 }
